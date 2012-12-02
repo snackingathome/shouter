@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
   # allow mass assignment for the following fields:
   attr_accessible :email, :password_digest, :username, :profile_fg, :profile_bg, :profile_image, :profile_image_file
+
+  has_many :shouts
+  has_many :followers
+  has_many :follows
   
   attr_accessor :profile_image_file
   
@@ -23,4 +27,10 @@ class User < ActiveRecord::Base
     reserved = %w{admin kyle leo}
     self.errors.add(:username, 'is not allowed') if reserved.include?(self.username.downcase.strip)
   end
+
+  def check_if_followed
+    self.followers?
+  end
+
+
 end

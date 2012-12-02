@@ -5,8 +5,18 @@
     
     <h1><%= "<u>#{@user.username}</u>".html_safe %></h1>
     
+    <div>
     ID: <%= @user.id %><br>
     Email: <%= @user.email %><br>
+    Number of Shouts: <%= @user.shouts.count %><br>
+    
+    <ul>
+	    <% @user.shouts.each do |shout|  %>
+		<li><%= "#{@user.username} : " %><%= shout.content %></li>
+	    <% end %>
+	</ul>
+
+	</div>
 </div>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

@@ -1,5 +1,7 @@
 Shouter::Application.routes.draw do
   
+  resources :follows
+
   resources :users
   
   resources :shouts
