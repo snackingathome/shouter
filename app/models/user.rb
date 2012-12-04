@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # allow mass assignment for the following fields:
   attr_accessible :email, :password_digest, :username, :profile_fg, :profile_bg, :profile_image, :profile_image_file
-
+  has_secure_password
   has_many :shouts
   has_many :followers
   has_many :follows

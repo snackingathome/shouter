@@ -1,5 +1,11 @@
 Shouter::Application.routes.draw do
   
+  get "sessions/new", :as => :log_in
+
+  post "sessions/create"
+
+  delete "sessions/destroy"
+
   resources :follows
 
   resources :users
